@@ -28,13 +28,11 @@ public class Button implements IButton {
 	}
 
 	public void playSound() {
-		
 		try {
 			wrapper.callMethod("play", null);
 		} catch (ParticleException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void resetButtonClickCounters() {
