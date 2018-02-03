@@ -5,6 +5,7 @@ import java.awt.Color;
 import org.c02.swe.iot.IButton;
 import org.c02.swe.iot.behaviour.CountAndPlay;
 import org.c02.swe.iot.behaviour.CountAndShowLed;
+import org.c02.swe.iot.behaviour.TiltingAndShowRed;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,6 +35,15 @@ public class BehaviourTest {
 	public void testCountAndPlay() {
 		CountAndPlay beh = new CountAndPlay(buttonInstance);
 		when(buttonInstance.getButtonClickCounter(IButton.ButtonDirection.North)).thenReturn(10);
+		Thread thread = new Thread(beh);
+		thread.start();
+		thread.interrupt();
+	}
+
+	@Test
+	public void shouldChangeRedColor() {
+		TiltingAndShowRed beh = new TiltingAndShowRed(buttonInstance);
+		when(buttonInstance.getXValue()).thenReturn(10.0);
 		Thread thread = new Thread(beh);
 		thread.start();
 		thread.interrupt();
