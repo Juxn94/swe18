@@ -14,7 +14,32 @@ public class Button implements IButton {
 	}
 
 	public int getButtonClickCounter(ButtonDirection button) {
-		// TODO Auto-generated method stub
+		String argument = "";
+		
+		switch (button) {
+		case North:
+			argument = "countButton1";
+			break;
+		case South:
+			argument = "countButton2";
+			break;
+		case East:
+			argument = "countButton3";
+			break;
+		case West:
+			argument = "countButton4";
+			break;
+
+
+		default:
+			return 1;
+		}
+		try {
+			System.out.println(wrapper.callMethod("readVariable", argument));
+		} catch (ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return 0;
 	}
 
@@ -51,7 +76,14 @@ public class Button implements IButton {
 	}
 
 	public void resetButtonClickCounters() {
-		// TODO Auto-generated method stub
+
+		try {
+			wrapper.callMethod("reset",null);
+		} catch (ParticleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return;
 		
 	}
 
