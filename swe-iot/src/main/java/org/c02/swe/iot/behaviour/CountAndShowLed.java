@@ -14,7 +14,7 @@ public class CountAndShowLed extends AbstractBehaviour {
 	@Override
 	public void run() {
 		int lastButtonCount = -1;
-		while(true) {
+		while(!Thread.interrupted()) {
 			int buttonCounter = button.getButtonClickCounter(ButtonDirection.North);
 			buttonCounter %= 12;
 			if(lastButtonCount != buttonCounter) {

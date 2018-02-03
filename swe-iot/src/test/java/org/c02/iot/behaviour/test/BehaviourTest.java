@@ -6,45 +6,26 @@ import org.c02.swe.iot.IButton;
 import org.c02.swe.iot.behaviour.CountAndShowLed;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
+@RunWith(MockitoJUnitRunner.class)
 public class BehaviourTest {
+
+	@Mock
+	private IButton buttonInstance;
 
 	@Test
 	public void testBehaviour() {
-
-		IButton buttonInstance = new IButton() {
-
-			@Override
-			public int getButtonClickCounter(ButtonDirection button) {
-				if (button == ButtonDirection.North)
-					return 5;
-				return 0;
-			}
-
-			@Override
-			public void resetButtonClickCounters() {
-				Assert.fail();
-			}
-
-			@Override
-			public void setLed(int postition, Color color) {
-				Assert.assertEquals(5, postition);
-				Assert.assertEquals(Color.GREEN, color);
-			}
-
-			@Override
-			public void allLedsOff() {
-				Assert.fail();
-			}
-
-			@Override
-			public void playSound() {
-				Assert.fail();
-			}
-		};
-
 		CountAndShowLed beh = new CountAndShowLed(buttonInstance);
-
-		beh.run();
+		when(buttonInstance.getButtonClickCounter(IButton.ButtonDirection.North)).thenReturn(1);
+		Thread thread = new Thread(beh);
+		thread.start();
+		thread.interrupt();
 	}
 }
