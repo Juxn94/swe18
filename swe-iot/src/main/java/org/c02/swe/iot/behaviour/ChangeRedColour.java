@@ -27,14 +27,30 @@ public class ChangeRedColour extends AbstractBehaviour{
 		int g = 20;
 		int b = 20;
 
-		int lastNorth = 0;
+		/*int lastNorth = 0;
 		int lastSouth = 0;
 		int lastEast = 0;
 		int lastWest = 0;
 		
-		int lastR = 0;
+		int lastR = 0;	*/	
 		
-		while(!Thread.interrupted()) {
+		
+		int north = button.getButtonClickCounter(ButtonDirection.North);
+		int south = button.getButtonClickCounter(ButtonDirection.South);
+		int east = button.getButtonClickCounter(ButtonDirection.East);
+		int west = button.getButtonClickCounter(ButtonDirection.West);
+		
+		int diffClickCount=north-south+east-west;
+		
+		r= diffClickCount*10;
+		if(r<0)
+			r=0;
+		if (r>255)
+			r=255;
+		
+		button.setLed(1, new Color(r,g,b));
+		
+		/*while(!Thread.interrupted()) {
 			
 			int north = button.getButtonClickCounter(ButtonDirection.North)-lastNorth;
 			lastNorth=north;
@@ -66,7 +82,7 @@ public class ChangeRedColour extends AbstractBehaviour{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}*/
 		
 	}
 	

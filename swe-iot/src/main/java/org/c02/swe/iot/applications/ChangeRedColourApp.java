@@ -15,8 +15,13 @@ public class ChangeRedColourApp {
         button.resetButtonClickCounters();
         button.allLedsOff();
         ChangeRedColour app = new ChangeRedColour(button);
-        Thread thread = new Thread(app);
-        thread.start();
+        /*Thread thread = new Thread(app);
+        thread.start();*/
+        
+        while(!Thread.interrupted()) {
+        	app.run();
+        }
+        
 		
 	}
 
