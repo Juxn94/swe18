@@ -19,4 +19,10 @@ public interface IButton {
 	void allLedsOff();
 	
 	void playSound();
+
+	double getXValue();
+
+	double getYValue();
+
+	double getZValue();
 }
