@@ -31,7 +31,7 @@ public class Button implements IButton {
 			argument = "countButton4";
 			break;
 		default:
-			return 1;
+			return -1;
 		}
 		try {
 			return wrapper.readVariable(argument);
