@@ -36,6 +36,14 @@ public class LedTest {
     }
 
     @Test
+    public void shouldTurnOnAllLedWithColorRed() throws Exception {
+        Button button = new Button(api);
+        button.setAllLed(Color.RED);
+        verify(api).callMethod("allLed", "255000000");
+        verifyNoMoreInteractions(api);
+    }
+
+    @Test
     public void shouldToNothingWhenPosition50WithColorRed() throws Exception {
         Button button = new Button(api);
         button.setLed(50, Color.RED);

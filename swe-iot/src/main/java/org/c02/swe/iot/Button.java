@@ -125,7 +125,7 @@ public class Button implements IButton {
 	public void setAllLed(Color color) {
 		try {
 			if (color != null) {
-				String colorString = String.format("03d%03d%03d", color.getRed(), color.getGreen(), color.getBlue());
+				String colorString = String.format("%03d%03d%03d", color.getRed(), color.getGreen(), color.getBlue());
 				wrapper.callMethod("allLed", colorString);
 			}
 		} catch (ParticleException e) {
