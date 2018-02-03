@@ -20,6 +20,8 @@ public class PlaySoundTest {
 		verify(wrapper).callMethod("play", null);
 		verifyNoMoreInteractions(wrapper);
 		
+		
+		
 	}
 
 }
