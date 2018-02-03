@@ -1,6 +1,7 @@
 package org.c02.swe.iot;
 
 import java.awt.Color;
+import java.io.IOException;
 
 import org.c02.swe.iot.cloud.api.IParticleApi;
 import org.c02.swe.iot.cloud.api.ParticleException;
@@ -29,15 +30,12 @@ public class Button implements IButton {
 		case West:
 			argument = "countButton4";
 			break;
-
-
 		default:
 			return 1;
 		}
 		try {
-			System.out.println(wrapper.callMethod("readVariable", argument));
-		} catch (ParticleException e) {
-			// TODO Auto-generated catch block
+			return wrapper.readVariable(argument);
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return 0;
