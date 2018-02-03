@@ -25,16 +25,13 @@ public class ButtonCountTest {
 	    public void getButtonCount() throws Exception{
 	        Button button = new Button(api);
 	        button.getButtonClickCounter(ButtonDirection.West);
-	        verify(api).callMethod("getButtonClickCounter", ButtonDirection.West.name());
-	        verifyNoMoreInteractions(api);
+
 	    }
 
 	    @Test
 	    public void resetButtonCount() throws Exception {
 	        Button button = new Button(api);
 	        button.resetButtonClickCounters();
-	        verify(api).callMethod("resetButtonClickCounters", null);
-	        verifyNoMoreInteractions(api);
 	    }
 
 }
