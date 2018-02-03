@@ -2,30 +2,30 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-swe-iot/.idea/**/workspace.xml
-swe-iot/.idea/**/tasks.xml
-swe-iot/.idea/dictionaries
-swe-iot/target/
+/swe-iot/.idea/**/workspace.xml
+/swe-iot/.idea/**/tasks.xml
+/swe-iot/.idea/dictionaries
+/swe-iot/target/
 
 # Sensitive or high-churn files:
-swe-iot/.idea/**/dataSources/
-swe-iot/.idea/**/dataSources.ids
-swe-iot/.idea/**/dataSources.xml
-swe-iot/.idea/**/dataSources.local.xml
-swe-iot/.idea/**/sqlDataSources.xml
-swe-iot/.idea/**/dynamic.xml
-swe-iot/.idea/**/uiDesigner.xml
+/swe-iot/.idea/**/dataSources/
+/swe-iot/.idea/**/dataSources.ids
+/swe-iot/.idea/**/dataSources.xml
+/swe-iot/.idea/**/dataSources.local.xml
+/swe-iot/.idea/**/sqlDataSources.xml
+/swe-iot/.idea/**/dynamic.xml
+/swe-iot/.idea/**/uiDesigner.xml
 
 # Gradle:
-swe-iot/.idea/**/gradle.xml
-swe-iot/.idea/**/libraries
+/swe-iot/.idea/**/gradle.xml
+/swe-iot/.idea/**/libraries
 
 # CMake
 cmake-build-debug/
 cmake-build-release/
 
 # Mongo Explorer plugin:
-swe-iot/.idea/**/mongoSettings.xml
+/swe-iot/.idea/**/mongoSettings.xml
 
 ## File-based project format:
 *.iws
@@ -42,7 +42,7 @@ out/
 atlassian-ide-plugin.xml
 
 # Cursive Clojure plugin
-swe-iot/.idea/replstate.xml
+/swe-iot/.idea/replstate.xml
 
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
