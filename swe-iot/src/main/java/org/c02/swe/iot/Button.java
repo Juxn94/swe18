@@ -85,4 +85,31 @@ public class Button implements IButton {
 		
 	}
 
+	public double getXValue() {
+		try {
+			return wrapper.readVariable("xValue");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public double getYValue() {
+		try {
+			return wrapper.readVariable("yValue");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public double getZValue() {
+		try {
+			return wrapper.readVariable("zValue");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
 }
