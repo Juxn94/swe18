@@ -25,4 +25,8 @@ public interface IButton {
 	double getYValue();
 
 	double getZValue();
+
+	void march();
+
+	void setAllLed(Color color);
 }

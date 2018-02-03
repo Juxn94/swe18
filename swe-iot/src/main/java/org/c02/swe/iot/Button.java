@@ -112,4 +112,25 @@ public class Button implements IButton {
 		return 0;
 	}
 
+	@Override
+	public void march() {
+		try {
+			wrapper.callMethod("march", null);
+		} catch (ParticleException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void setAllLed(Color color) {
+		try {
+			if (color != null) {
+				String colorString = String.format("03d%03d%03d", color.getRed(), color.getGreen(), color.getBlue());
+				wrapper.callMethod("allLed", colorString);
+			}
+		} catch (ParticleException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
