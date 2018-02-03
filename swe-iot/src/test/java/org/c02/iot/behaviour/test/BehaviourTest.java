@@ -3,6 +3,7 @@ package org.c02.iot.behaviour.test;
 import java.awt.Color;
 
 import org.c02.swe.iot.IButton;
+import org.c02.swe.iot.behaviour.CountAndPlay;
 import org.c02.swe.iot.behaviour.CountAndShowLed;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,9 +22,18 @@ public class BehaviourTest {
 	private IButton buttonInstance;
 
 	@Test
-	public void testBehaviour() {
+	public void testCountAndShowLed() {
 		CountAndShowLed beh = new CountAndShowLed(buttonInstance);
 		when(buttonInstance.getButtonClickCounter(IButton.ButtonDirection.North)).thenReturn(1);
+		Thread thread = new Thread(beh);
+		thread.start();
+		thread.interrupt();
+	}
+
+	@Test
+	public void testCountAndPlay() {
+		CountAndPlay beh = new CountAndPlay(buttonInstance);
+		when(buttonInstance.getButtonClickCounter(IButton.ButtonDirection.North)).thenReturn(10);
 		Thread thread = new Thread(beh);
 		thread.start();
 		thread.interrupt();
