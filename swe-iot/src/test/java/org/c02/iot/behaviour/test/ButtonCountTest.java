@@ -25,7 +25,7 @@ public class ButtonCountTest {
 	    public void getButtonCount() throws Exception{
 	        Button button = new Button(api);
 	        button.getButtonClickCounter(ButtonDirection.West);
-	        verify(api).callMethod("ledsOff", null);
+	        verify(api).callMethod("getButtonClickCounter", ButtonDirection.West.name());
 	        verifyNoMoreInteractions(api);
 	    }
 
@@ -33,7 +33,7 @@ public class ButtonCountTest {
 	    public void resetButtonCount() throws Exception {
 	        Button button = new Button(api);
 	        button.resetButtonClickCounters();
-	        verify(api).callMethod("led", "01255000000");
+	        verify(api).callMethod("resetButtonClickCounters", null);
 	        verifyNoMoreInteractions(api);
 	    }
 
