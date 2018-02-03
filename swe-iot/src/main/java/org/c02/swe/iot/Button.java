@@ -18,14 +18,29 @@ public class Button implements IButton {
 		return 0;
 	}
 
-	public void setLed(int postition, Color color) {
-		// TODO Auto-generated method stub
-	}
+    public void setLed(int postition, Color color) {
+        // nn = Position 01-12
+        // rrr = rot
+        // ggg = grün
+        // bbb = blau
+        // nnrrrgggbbb
+        try {
+            if (postition > 0 && postition <= 12 && color != null) {
+                String colorString = String.format("%02d%03d%03d%03d", postition, color.getRed(), color.getGreen(), color.getBlue());
+                wrapper.callMethod("led", colorString);
+            }
+        } catch (ParticleException e) {
+            e.printStackTrace();
+        }
+    }
 
-	public void allLedsOff() {
-		// TODO Auto-generated method stub
-
-	}
+    public void allLedsOff() {
+        try {
+            wrapper.callMethod("ledsOff", null);
+        } catch (ParticleException e) {
+            e.printStackTrace();
+        }
+    }
 
 	public void playSound() {
 		try {
